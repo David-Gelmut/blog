@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">
                         <div class="col-12">
-                            Категории
+                        Посты
                         </div>
                     </h1>
                 </div><!-- /.col -->
@@ -31,7 +31,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-3">
-                    <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                    <a href="{{route('admin.post.create')}}" class="btn btn-block btn-primary">Добавить</a>
                 </div>
             </div>
             <div class="row">
@@ -48,17 +48,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
+                                @foreach($posts as $post)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->title}}</td>
-                                    <td><a class="text-success" href="{{route('admin.category.show',$category->id)}}"><i class="fa fa-eye"></i></a></td>
-                                    <td><a class="text-success" href="{{route('admin.category.edit',$category->id)}}"><i class="fa fa-wrench"></i></a></td>
+                                    <td>{{$post->id}}</td>
+                                    <td>{{$post->title}}</td>
+                                    <td><a class="text-success" href="{{route('admin.tag.show',$post->id)}}">Посмотреть</a></td>
+                                    <td><a class="text-success" href="{{route('admin.tag.edit',$post->id)}}">Редактировать</a></td>
                                     <td>
-                                        <form action="{{route('admin.category.delete',$category->id)}}" method="post">
+                                        <form action="{{route('admin.post.delete',$post->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn text-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            <button type="submit" class="btn text-danger" >Удалить</button>
                                         </form>
                                     </td>
                                 </tr>
