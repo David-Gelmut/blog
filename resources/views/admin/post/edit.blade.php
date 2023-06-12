@@ -30,8 +30,14 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input value="{{$tag->title}}" type="text" class="form-control" name="title"  placeholder="Название поста">
+                        <input value="{{$post->title}}" type="text" class="form-control" name="title"  placeholder="Название поста">
                         @error('title')
+                        <div class="text-danger">Это поле необходимо заполнить</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <textarea  name="content" class="">{{$post->content}}</textarea>
+                        @error('content')
                         <div class="text-danger">Это поле необходимо заполнить</div>
                         @enderror
                     </div>

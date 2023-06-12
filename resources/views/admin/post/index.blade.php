@@ -44,6 +44,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
+                                    <th>Содержимое</th>
                                     <th>Действие</th>
                                 </tr>
                                 </thead>
@@ -52,8 +53,9 @@
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
-                                    <td><a class="text-success" href="{{route('admin.tag.show',$post->id)}}">Посмотреть</a></td>
-                                    <td><a class="text-success" href="{{route('admin.tag.edit',$post->id)}}">Редактировать</a></td>
+                                    <td>{{$post->content}}</td>
+                                    <td><a class="text-success" href="{{route('admin.post.show',$post->id)}}">Посмотреть</a></td>
+                                    <td><a class="text-success" href="{{route('admin.post.edit',$post->id)}}">Редактировать</a></td>
                                     <td>
                                         <form action="{{route('admin.post.delete',$post->id)}}" method="post">
                                             @csrf

@@ -34,8 +34,11 @@
                         <div class="text-danger">Это поле необходимо заполнить</div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <textarea id="summernote" name="content"></textarea>
+                    <div class="form-group " >
+                        <textarea  name="content" ></textarea>
+                        @error('content')
+                        <div class="text-danger">Это поле необходимо заполнить</div>
+                        @enderror
                     </div>
                     <input type="submit" class="btn btn-primary" value="Добавить">
                 </form>
