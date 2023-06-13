@@ -146,6 +146,12 @@
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('assets/js/loader.js')}}"></script>
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<script>
+    $(function () {
+        bsCustomFileInput.init();
+    });
+</script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();
@@ -156,6 +162,7 @@
         duration: 1000
     });
 </script>
+
 </body>
 
 </html>

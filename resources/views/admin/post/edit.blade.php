@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('admin.post.update',$post->id)}}" method="POST">
+                <form action="{{route('admin.post.update',$post->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
@@ -36,10 +36,34 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <textarea  name="content" class="">{{$post->content}}</textarea>
+                        <textarea  style="height: 200px;width:400px" name="content" class="form-control">{{$post->content}}</textarea>
                         @error('content')
                         <div class="text-danger">Это поле необходимо заполнить</div>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label >Обновить превью</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input value="{{$post->prev_image}}" name="prev_image" type="file" class="custom-file-input" >
+                                <label class="custom-file-label">Обновите изображение</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузка</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label >Обновить основное изображение</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input value="{{$post->main_image}}" name="main_image" type="file" class="custom-file-input" >
+                                <label class="custom-file-label">Выберите изображение</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузка</span>
+                            </div>
+                        </div>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Обновить">
                 </form>
