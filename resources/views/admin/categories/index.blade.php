@@ -52,13 +52,13 @@
                                 <tr>
                                     <td>{{$category->id}}</td>
                                     <td>{{$category->title}}</td>
-                                    <td><a class="text-success" href="{{route('admin.category.show',$category->id)}}">Посмотреть</a></td>
-                                    <td><a class="text-success" href="{{route('admin.category.edit',$category->id)}}">Редактировать</a></td>
+                                    <td><a class="text-success" href="{{route('admin.category.show',$category->id)}}"><i class="fa fa-eye"></i></a></td>
+                                    <td><a class="text-success" href="{{route('admin.category.edit',$category->id)}}"><i class="fa fa-wrench"></i></a></td>
                                     <td>
                                         <form action="{{route('admin.category.delete',$category->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn text-danger" >Удалить</button>
+                                            <button type="submit" class="btn text-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                         </form>
                                     </td>
                                 </tr>
