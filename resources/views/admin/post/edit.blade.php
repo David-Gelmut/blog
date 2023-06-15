@@ -67,12 +67,22 @@
                     </div>
                     <div class="form-group">
                         <label>Выберите категорию</label>
-                        <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                        <select name="category_id" class="form-control">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"
+                                    {{$category->id==old('$category_id')?'selected':''}}
+                                >{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Выберите Тэги</label>
+                        <select multiple  name="tag_id[]" class="form-control">
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}"
+                                    {{$tag->id==old('$tag_id')?'selected':''}}
+                                >{{$tag->title}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Обновить">
