@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}} ">
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
 </head>
 <body>
 <div class="edica-loader"></div>
@@ -137,7 +136,9 @@
         </div>
     </div>
 </footer>
+
 <script src="{{asset('assets/vendors/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('plugins/select2/css/select2.min.css')}}"></script>
 <script src="{{asset('public/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/vendors/popper.js/popper.min.js')}}"></script>
@@ -146,15 +147,11 @@
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('assets/js/loader.js')}}"></script>
-<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
+
 <script>
     $(function () {
         bsCustomFileInput.init();
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
     });
 </script>
 <script>
@@ -162,7 +159,6 @@
         duration: 1000
     });
 </script>
-
 </body>
 
 </html>

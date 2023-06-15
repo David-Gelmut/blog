@@ -44,7 +44,7 @@
                         <label for="exampleInputFile">Добавить превью</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input name="prev_image" type="file" class="custom-file-input" >
+                                <input value="{{old('prev_image')}}" name="prev_image" type="file" class="custom-file-input" >
                                 <label class="custom-file-label">Выберите изображение</label>
                             </div>
                             <div class="input-group-append">
@@ -59,7 +59,7 @@
                         <label for="exampleInputFile">Добавить основное изображение</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input name="main_image" type="file" class="custom-file-input" >
+                                <input value="{{old('main_image')}}" name="main_image" type="file" class="custom-file-input" >
                                 <label class="custom-file-label">Выберите изображение</label>
                             </div>
                             <div class="input-group-append">
@@ -77,6 +77,16 @@
                                 <option value="{{$category->id}}"
                                 {{$category->id==old('$category_id')?'selected':''}}
                                 >{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Выберите Тэги</label>
+                        <select multiple  name="tag_id[]" class="form-control">
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}"
+                                        {{is_array(old('tag_id'))&&in_array($tag->id,old('tag_id'))?'selected':''}}
+                                >{{$tag->title}}</option>
                             @endforeach
                         </select>
                     </div>
