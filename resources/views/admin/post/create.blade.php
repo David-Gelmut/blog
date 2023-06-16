@@ -42,6 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Добавить превью</label>
+
                         <div class="input-group">
                             <div class="custom-file">
                                 <input value="{{old('prev_image')}}" name="prev_image" type="file" class="custom-file-input" >
@@ -79,16 +80,20 @@
                                 >{{$category->title}}</option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                        <div class="text-danger">Это поле необходимо заполнить</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Выберите Тэги</label>
-                        <select multiple  name="tag_id[]" class="form-control">
+                        <select multiple  name="tag_id[]" class="form-control" required>
                             @foreach($tags as $tag)
-                                <option value="{{$tag->id}}"
-                                        {{is_array(old('tag_id'))&&in_array($tag->id,old('tag_id'))?'selected':''}}
-                                >{{$tag->title}}</option>
+                                <option value="{{$tag->id}}">{{$tag->title}}</option>
                             @endforeach
                         </select>
+                        @error('tag_id')
+                        <div class="text-danger">Это поле необходимо заполнить</div>
+                        @enderror
                     </div>
                     <input type="submit" class="btn btn-primary" value="Добавить">
                 </form>

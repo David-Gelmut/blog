@@ -7,14 +7,12 @@ use App\Http\Requests\Admin\Post\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
    public function __invoke(UpdateRequest $request, Post $post)
    {
        $data=$request->validated();
-       $data['main_image']=Storage::put('/images',$data['main_image']);
-       $data['prev_image']=Storage::put('/images',$data['prev_image']);
-       $post->update($data);
+       $post= $this->service->update($data,$post);
        return view('admin.post.show',['post'=>$post]);
    }
 }

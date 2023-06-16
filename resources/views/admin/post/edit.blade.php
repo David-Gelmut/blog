@@ -43,9 +43,12 @@
                     </div>
                     <div class="form-group">
                         <label >Обновить превью</label>
+                        <div class="w-25">
+                            <img class="w-50" src="{{asset('storage/'.$post->prev_image)}}" alt="preview">
+                        </div>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input value="{{$post->prev_image}}" name="prev_image" type="file" class="custom-file-input" >
+                                <input  name="prev_image" type="file" class="custom-file-input" >
                                 <label class="custom-file-label">Обновите изображение</label>
                             </div>
                             <div class="input-group-append">
@@ -55,9 +58,12 @@
                     </div>
                     <div class="form-group">
                         <label >Обновить основное изображение</label>
+                        <div class="w-25">
+                            <img class="w-50" src="{{url('storage/'.$post->main_image)}}" alt="main">
+                        </div>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input value="{{$post->main_image}}" name="main_image" type="file" class="custom-file-input" >
+                                <input  name="main_image" type="file" class="custom-file-input" >
                                 <label class="custom-file-label">Выберите изображение</label>
                             </div>
                             <div class="input-group-append">
@@ -70,7 +76,7 @@
                         <select name="category_id" class="form-control">
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}"
-                                    {{$category->id==old('$category_id')?'selected':''}}
+                                    {{$category->id==$post->category_id?'selected':''}}
                                 >{{$category->title}}</option>
                             @endforeach
                         </select>
@@ -80,7 +86,7 @@
                         <select multiple  name="tag_id[]" class="form-control">
                             @foreach($tags as $tag)
                                 <option value="{{$tag->id}}"
-                                    {{$tag->id==old('$tag_id')?'selected':''}}
+                                    {{is_array($post->tags->pluck('id'))&&in_array($tag->id,$post->tags)?'selected':''}}
                                 >{{$tag->title}}</option>
                             @endforeach
                         </select>

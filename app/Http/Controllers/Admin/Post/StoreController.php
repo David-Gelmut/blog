@@ -8,24 +8,12 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Mockery\Exception;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
    public function __invoke(StoreRequest $request)
    {
-       try {
-           $data=$request->validated();
-           //  dd($data);
-           $tagIds=$data['tag_id'];
-           unset($data['tag_id']);
-           $data['main_image']=Storage::put('/images',$data['main_image']);
-           $data['prev_image']=Storage::put('/images',$data['prev_image']);
-           $post=Post::firstOrCreate($data);
-           $post->tags()->attach($tagIds);
-       }
-       catch (Exception $exception)
-       {
-           abort(404);
-       }
+       $data=$request->validated();
+       $this->service->store($data);
        return redirect()->route('admin.post.index');
    }
 }
