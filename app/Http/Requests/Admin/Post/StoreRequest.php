@@ -32,4 +32,12 @@ class StoreRequest extends FormRequest
 
         ];
     }
+
+    public function messages()
+    {
+        return [
+          'title.required'=>'Заполните поле',
+          'title.string'=>'Введите строку'
+        ];
+    }
 }

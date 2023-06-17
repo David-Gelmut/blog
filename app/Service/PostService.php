@@ -9,50 +9,55 @@ use Mockery\Exception;
 
 class PostService
 {
-    public function store($data){
+    public function store($data)
+    {
         try {
             Db::beginTransaction();
-            if(isset($data['tag_id']))
-                $tagIds=$data['tag_id'];
-            else
-                $tagIds=[];
-            unset($data['tag_id']);
-            if(isset($data['main_image'])){
-                $data['main_image']=Storage::disk('public')->put('/images',$data['main_image']);
+            if (isset($data['tag_id'])) {
+                $tagIds = $data['tag_id'];
+                unset($data['tag_id']);
             }
-            if(isset($data['prev_image'])){
-                $data['prev_image']=Storage::disk('public')-> put('/images',$data['prev_image']);
+            //         else
+            //           $tagIds=[];
+
+            if (isset($data['main_image'])) {
+                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             }
-            $post=Post::firstOrCreate($data);
-            $post->tags()->attach($tagIds);
+            if (isset($data['prev_image'])) {
+                $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
+            }
+            $post = Post::firstOrCreate($data);
+            if (isset($tagIds))
+                $post->tags()->attach($tagIds);
             Db::commit();
-        }
-        catch (Exception $exception){
+        } catch (Exception $exception) {
             Db::rollback();
             abort(404);
         }
     }
 
-    public function update($data,$post){
+    public function update($data, $post)
+    {
         try {
             Db::beginTransaction();
-            $tagIds=$data['tag_id'];
-            unset($data['tag_id']);
-            if(isset($data['main_image'])){
-                $data['main_image']=Storage::disk('public')->put('/images',$data['main_image']);
+            if (isset($data['tag_id'])) {
+                $tagIds = $data['tag_id'];
+                unset($data['tag_id']);
             }
-            if(isset($data['prev_image'])){
-                $data['prev_image']=Storage::disk('public')-> put('/images',$data['prev_image']);
+            if (isset($data['main_image'])) {
+                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            }
+            if (isset($data['prev_image'])) {
+                $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
             }
             $post->update($data);
-            $post->tags()->sync($tagIds);
+            if (isset($tagIds))
+                $post->tags()->sync($tagIds);
             Db::commit();
-        }
-        catch (Exception $exception){
+        } catch (Exception $exception) {
             Db::rollback();
             abort(500);
         }
         return $post;
-
     }
 }

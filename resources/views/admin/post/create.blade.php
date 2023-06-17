@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" value="{{old('title')}}" name="title"  placeholder="Название поста">
                         @error('title')
-                        <div class="text-danger">Это поле необходимо заполнить</div>
+                        <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group" >
