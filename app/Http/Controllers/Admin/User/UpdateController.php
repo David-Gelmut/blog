@@ -8,10 +8,10 @@ use App\Models\Category;
 
 class UpdateController extends Controller
 {
-   public function __invoke(UpdateRequest $request, Category $category)
+   public function __invoke(UpdateRequest $request, User $user)
    {
        $data=$request->validated();
-       $category->update($data);
-       return view('admin.categories.show',['category'=>$category]);
+       $user->update($data);
+       return view('admin.users.show',['user'=>$user]);
    }
 }

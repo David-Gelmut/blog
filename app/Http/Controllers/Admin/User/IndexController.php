@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\User;
 
 class indexController extends Controller
 {
    public function __invoke()
    {
-       $categories=Category::all();
-       return view('admin.categories.index',['categories'=>$categories]);
+       $users=User::all();
+       return view('admin.users.index',['users'=>$users]);
    }
 }

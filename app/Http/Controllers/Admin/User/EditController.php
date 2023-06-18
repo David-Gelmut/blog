@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\User;
 
 class EditController extends Controller
 {
-   public function __invoke(Category $category)
+   public function __invoke(User $user)
    {
-       return view('admin.categories.edit',['category'=>$category]);
+       return view('admin.user.edit',['user'=>$user]);
    }
 }
