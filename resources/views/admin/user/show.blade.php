@@ -57,12 +57,12 @@
                     <!-- /.card -->
                     <div class="row mb-3">
                         <div class="col-3">
-                            <a href="{{route('admin.category.edit',$name->id)}}" class="btn btn-block btn-primary">Обновить</a>
+                            <a href="{{route('admin.user.edit',$user->id)}}" class="btn btn-block btn-primary">Обновить</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <form action="{{route('admin.category.delete',$name->id)}}" method="post">
+                            <form action="{{route('admin.user.delete',$user->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-block btn-danger" >Удалить</button>

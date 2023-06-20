@@ -12,6 +12,6 @@ class UpdateController extends Controller
    {
        $data=$request->validated();
        $user->update($data);
-       return view('admin.users.show',['user'=>$user]);
+       return view('admin.user.show',['user'=>$user]);
    }
 }

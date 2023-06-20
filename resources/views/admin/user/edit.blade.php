@@ -35,6 +35,12 @@
                         <div class="text-danger">Это поле необходимо заполнить</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <input value="{{$user->email}}" type="text" class="form-control" name="email"  placeholder="Email">
+                        @error('email')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Обновить">
                 </form>
             </div>
