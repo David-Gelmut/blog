@@ -52,13 +52,13 @@
                                 <tr>
                                     <td>{{$tag->id}}</td>
                                     <td>{{$tag->title}}</td>
-                                    <td><a class="text-success" href="{{route('admin.tag.show',$tag->id)}}">Посмотреть</a></td>
-                                    <td><a class="text-success" href="{{route('admin.tag.edit',$tag->id)}}">Редактировать</a></td>
+                                    <td><a class="text-success" href="{{route('admin.tag.show',$tag->id)}}"><i class="fa fa-eye"></i></a></td>
+                                    <td><a class="text-success" href="{{route('admin.tag.edit',$tag->id)}}"><i class="fa fa-wrench"></i></a></td>
                                     <td>
                                         <form action="{{route('admin.tag.delete',$tag->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn text-danger" >Удалить</button>
+                                            <button type="submit" class="btn text-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                         </form>
                                     </td>
                                 </tr>

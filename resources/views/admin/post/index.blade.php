@@ -54,13 +54,13 @@
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->content}}</td>
-                                    <td><a class="text-success" href="{{route('admin.post.show',$post->id)}}">Посмотреть</a></td>
-                                    <td><a class="text-success" href="{{route('admin.post.edit',$post->id)}}">Редактировать</a></td>
+                                    <td><a class="text-success" href="{{route('admin.post.show',$post->id)}}"><i class="fa fa-eye"></i></a></td>
+                                    <td><a class="text-success" href="{{route('admin.post.edit',$post->id)}}"><i class="fa fa-wrench"></a></td>
                                     <td>
                                         <form action="{{route('admin.post.delete',$post->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn text-danger" >Удалить</button>
+                                            <button type="submit" class="btn text-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                         </form>
                                     </td>
                                 </tr>
