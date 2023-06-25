@@ -21,11 +21,11 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        //dd($this->user_id);
         return [
             'name'=>'required|string',
-            'email' => 'required|email|unique:users,email,'.$this->user->id,
-            'user_id'=>'required|integer|exists:users,id',
-             'role'=>'required|integer'
+            'email' => 'required|email|unique:users,email'.$this->user->id,
+            'role'=>'required|integer'
         ];
     }
 
