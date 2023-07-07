@@ -55,7 +55,7 @@
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->content}}</td>
                                     <td><a class="text-success" href="{{route('admin.post.show',$post->id)}}"><i class="fa fa-eye"></i></a></td>
-                                    <td><a class="text-success" href="{{route('admin.post.edit',$post->id)}}"><i class="fa fa-wrench"></a></td>
+                                    <td><a class="text-success" href="{{route('admin.post.edit',$post->id)}}"><i class="fa fa-wrench"></i></a></td>
                                     <td>
                                         <form action="{{route('admin.post.delete',$post->id)}}" method="post">
                                             @csrf

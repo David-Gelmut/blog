@@ -27,7 +27,40 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
+                <div class="col-6 mt-3">
+                    <div class="card">
 
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Название</th>
+                                    <th colspan="2" class="text-center">Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($posts as $post)
+                                    <tr>
+                                        <td>{{$post->id}}</td>
+                                        <td>{{$post->title}}</td>
+                                        <td><a class="text-success" href="{{route('admin.post.show',$post->id)}}"><i class="fa fa-eye"></i></a></td>
+                                        <td>
+                                            <form action="{{route('personal.liked.delete',$post->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn text-danger" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
